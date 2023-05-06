@@ -1,0 +1,82 @@
+\begin{tikzpicture}
+    \node[inner sep=0pt] at (0,0)
+        {\includegraphics[width=3in]{supp_fig1.pdf}};
+    \draw[|-|,line width=1]
+    (-3.1,2.4) --
+    (0.5,2.4);
+    \node[inner sep=0pt] at (-1.5,2.7)
+        {$R_0$};
+    \draw[|-|,line width=1]
+    (2,1.5) --
+    (0.5,0.2);
+    \node[inner sep=0pt] at (1.1,1.2)
+        {$a$};
+    \node[inner sep=0pt] at (-2.3,-2)
+    {$\br_0(t)$};
+    \draw[->,line width=2]
+    (2.8,-2.25) --
+    (2.8,-0.75);
+    \draw[->,line width=2]
+    (2.8,-2.25) --
+    (3.35,-2.55);
+    \draw[line width=0.25] (2.8,-2.25) ellipse (1.5 and 0.3);
+    \draw[->,line width=2]
+    (3.35,-2.55) --
+    (4.8,-2.35);
+    \node[inner sep=0pt] at (2.5,-2.3)
+    {$\mathbf{\hat{R}}$};
+    \node[inner sep=0pt] at (3.15,-1.4)
+    {$\mathbf{\hat{z}}$};
+    \node[inner sep=0pt] at (4.2,-2.75)
+    {$\mathbf{\hat{\boldsymbol{\varphi}}}$};
+\end{tikzpicture}
+\begin{tikzpicture}[ scale=0.35,
+   decoration={
+    markings,% switch on markings
+    mark=at position .15 with {\arrow{stealth}},
+	mark=at position .5 with {\arrow{stealth}}}
+	]
+
+\draw [ultra thick] (-1,0) node [left] {$A$} -- (1,0);
+\draw [ultra thick] (7,0) -- (9,0) node [right] {$B$};
+
+\draw [myred, postaction={decorate}] (-3,3) node [above left] {1in} 
+	-- (0,0)
+	.. controls (2,4) and (6,4) ..
+	(8,0) -- ++(3,3) node [above right] {1out};
+\draw [myred] (4,3.8) node {1\textsc{mzi}};
+\draw (4,2.2) node {$\tau_1$};
+\draw [myred, postaction={decorate}] (-3,-3) node [below left] {2in} 
+	-- (0,0)
+	.. controls (2,-3) and (6,-3) ..
+	(8,0) -- ++(3,-3) node [below right] {2out}; 
+\draw [myred] (4,-3.2) node {2\textsc{mzi}};
+\draw (4,-1.5) node {$\tau_2$};
+
+\draw (4,0) node {$\Phi_B$} ;
+
+\end{tikzpicture}
+\begin{tikzpicture}[scale=0.8]
+%%\draw [help lines, step=0.5] (0,0) grid (12,8);
+%\draw (6,4) ellipse (5 and 3);
+%\draw [line width=0.3mm, >=stealth] (1,4) -- (11,4);
+%\draw [line width=0.3mm, >=stealth] (6,1) -- (6,7);
+%\node at (2,4) {\textbullet};
+%\node at (1.5,3.5) {$F_1$};
+%\node at (10,4) {\textbullet};
+%\node at (9.5,3.5) {$F_2$};
+%\draw [->, >=stealth] (2,4) -- ($(6,4)+(120:5 and 3)$);
+%\draw [->, >=stealth] ($(6,4)+(120:5 and 3)$) -- (10,4);
+%\node at (3.5,7) {$C$};
+%\node at (3,5) {$\mathbf{k}_1$};
+%\node at (4.5,5.75) {$\mathbf{k}_2$};
+%\draw [->, >=stealth] (2,4) -- ($(6,4)+(70:5 and 3)$);
+%\draw [->, >=stealth] ($(6,4)+(70:5 and 3)$) -- (10,4);
+%\node at (8,7.25) {$C'$};
+%\node at (6.5,6.5) {$\mathbf{k}'_1$};
+%\node at (8.75,6) {$\mathbf{k}'_2$};
+%\node at (5.5,3.5) {$O$};
+%\node at (1.5,6) {$\Gamma$};
+%\end{tikzpicture}
+\begin{tikzpicture}[remember picture,overlay]
+       \end{tikzpicture}
