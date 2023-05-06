@@ -4,9 +4,10 @@ import tarfile
 import re
 import glob
 import os
+import shutil
 
 
-def query_arxiv(search_query, start=0, max_results=100):
+def query_arxiv(search_query, start=0, max_results=10):
     base_url = "http://export.arxiv.org/api/query?"
     query = f"search_query={search_query}&start={start}&max_results={max_results}"
     url = base_url + query
@@ -15,7 +16,7 @@ def query_arxiv(search_query, start=0, max_results=100):
 
 def main():
     search_query = "all:electron" # Change this to your desired search query
-    max_results = 10 # Change this to the desired number of results
+    max_results = 3 # Change this to the desired number of results
     response = query_arxiv(search_query, max_results=max_results)
 
     for entry in response.entries:
@@ -34,25 +35,26 @@ def main():
                 # expand tar.gz file in python
             
             file = tarfile.open(full_filename)
+            # make directory
+            expand_path = f'sources/{filename}'
+            os.makedirs(expand_path, exist_ok=True)
             # extracting file
-            file.extractall(f'sources/')
+            file.extractall(expand_path)
             file.close()
+            os.remove(full_filename)
         except Exception as e:
             print(f"failed on file {full_filename}")
-    
-    # Delete files that are not .tex files
 
-    for file_path in glob.glob("sources/*"):
-        if not file_path.lower().endswith(".tex"):
+
+        # Delete files that are not .tex files
+        for file_path in glob.glob(f"{expand_path}/*"):
+            if file_path.lower().endswith(".tex"):
+                sections = extract_tikz_sections(file_path)
+                print(sections)
             if os.path.isfile(file_path):
                 os.remove(file_path)
-            else:
-                delete_non_tex_files(file_path)
-        else:
-            print("extracting tex file")
-            sections = extract_tikz_sections(file_path)
-            print(sections)
-
+        
+        shutil.rmtree(expand_path)
         
 
 
